@@ -1,0 +1,73 @@
+<!-- race_checklist.html -->
+
+{% load static %}
+
+{% block content %}
+<h2>My Race Checklist</h2>
+<ul>
+    <li *ngFor="let state of states">
+      <span>{{ state.name }}</span>
+      <img [src]="state.flag_url" alt="{{ state.name }} Flag" width="30" height="20" />
+      <button (click)="openAddRaceDialog(state)">Add Race</button>
+      <button (click)="markAsCompleted(state)">Mark as Completed</button>
+    </li>
+  </ul>
+
+<!-- Modal for adding a new race -->
+<div id="addRaceModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Add New Race</h3>
+    <form id="addRaceForm" method="post" action="{% url 'add_race' %}">
+      {% csrf_token %}
+      <!-- Form fields for race details -->
+      <label for="race_name">Race Name:</label>
+      <input type="text" id="race_name" name="race_name" required><br><br>
+      <label for="race_date">Race Date:</label>
+      <input type="date" id="race_date" name="race_date" required="false"><br><br>
+      <label for="race_notes">Notes:</label>
+      <textarea id="race_notes" name="race_notes"></textarea><br><br>
+      <label for="race_time">Race Time:</label>
+      <input type="text" id="race_time" name="race_time"><br><br>
+      <input type="submit" value="Add">
+      <button type="button" class="skip">Skip</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // JavaScript to handle modal display and form submission
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('addRaceModal');
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          // Show modal when checkbox is checked
+          modal.style.display = 'block';
+        }
+      });
+    });
+
+    // Close the modal if the user clicks on 'X' or outside the modal
+    var closeBtn = document.querySelector('.close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+    }
+
+    // Handle Skip button click
+    var skipBtn = document.querySelector('.skip');
+    if (skipBtn) {
+      skipBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+{% endblock %}
+
+
