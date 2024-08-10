@@ -1,0 +1,11 @@
+.race-duration-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .race-duration-input {
+    width: 2rem;
+    text-align: center;
+    margin-right: 0.25rem;
+  }
+  

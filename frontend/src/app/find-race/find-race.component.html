@@ -1,0 +1,112 @@
+<!--Sidenav-->
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="main-content">
+      
+        <!-- Featured Race Card -->
+        <div class="featured-race-header" *ngIf="featuredRace">Featured Race</div>
+        <mat-card class="race-card" *ngIf="featuredRace">
+          <mat-card-header>
+            <div mat-card-avatar class="race-logo" [style.background-image]="'url(' + featuredRaceLogo + ')'"></div>
+            <mat-card-title>{{ featuredRace.name }}</mat-card-title>
+            <mat-card-subtitle>{{ featuredRace.address.city }}, {{ featuredRace.address.state }}</mat-card-subtitle>
+            <mat-card-subtitle>{{ featuredRace.next_date }}</mat-card-subtitle>
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="more-button">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="viewDetails(featuredRace)">See Details</button>
+                <button mat-menu-item (click)="addToWishlist(featuredRace)">Add to Wishlist</button>
+              </mat-menu>
+            </mat-card-header>
+            <div class="register-button-container">
+                <a class="register-button" [href]="featuredRace.url" target="_blank" rel="noopener noreferrer"> 
+                  Register
+                </a>
+            </div>
+          
+        </mat-card>
+  
+        <!-- Search Filters Card -->
+        <mat-card class="search-filters-card">
+          <mat-card-header>
+            <mat-card-title>Find a Race</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form (ngSubmit)="searchRaces()" class="search-form">
+              <div class="filters-container">
+                <!-- Select States -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Select States</mat-label>
+                  <mat-select [formControl]="selectedStatesControl" multiple>
+                    <mat-option *ngFor="let state of states" [value]="state">{{ state.name }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+                <!-- Select Months -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Select Months</mat-label>
+                  <mat-select [formControl]="selectedMonthsControl" multiple>
+                    <mat-option *ngFor="let month of months" [value]="month.value">{{ month.name }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+                <!-- Select Distances -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Select Distances</mat-label>
+                  <mat-select [formControl]="selectedDistancesControl" multiple>
+                    <mat-option *ngFor="let distance of distances" [value]="distance">{{ distance.name }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+                <button mat-raised-button type="submit">Search</button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+  
+        <!-- Search Results -->
+        <div *ngIf="races.length > 0" class="search-results-container">
+          
+        <div class="search-results-header">Search Results</div>
+        <mat-card class="race-card" *ngFor="let race of displayedRaces">
+            <mat-card-header>
+              <div mat-card-avatar class="race-logo" [style.background-image]="'url(' + race.logo_url + ')'"></div>
+              <div class="race-info">
+                <mat-card-title>{{ race.name }}</mat-card-title>
+                <mat-card-subtitle>{{ race.address.city }}, {{ race.address.state }}</mat-card-subtitle>
+                <mat-card-subtitle>{{ race.next_date | date }}</mat-card-subtitle>
+              </div>
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="viewDetails(race)">See Details</button>
+                <button mat-menu-item (click)="addToWishlist(race)">Add to Wishlist</button>
+              </mat-menu>
+            </mat-card-header>
+
+            
+            <div class="register-button-container">
+                <a class="register-button" [href]="race.url" target="_blank" rel="noopener noreferrer"> 
+                  Register
+                </a>
+            </div>
+          </mat-card>
+        </div>
+        <mat-paginator class="paginator" [length]="races.length"
+                        [pageSize]="25"
+                        [pageSizeOptions]="[10, 25, 50, 100]"
+                        aria-label="Select page"
+                        (page)="onPageChange($event)">
+        </mat-paginator>
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

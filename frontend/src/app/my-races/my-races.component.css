@@ -1,0 +1,134 @@
+
+/* Ensure the sidenav takes up full height */
+.sidenav-container {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Styling for the sidenav */
+mat-sidenav {
+    width: 200px; /* Set the width of the sidenav */
+    background: #003B6F; /* Background color of the sidenav */
+    color: white; /* Text color inside the sidenav */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+.sidenav-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    padding: 16px; /* Add some padding */
+    border-bottom: 1px solid #ffffff33; 
+}
+
+/* Styling for main content */
+.main-content {
+    padding: 20px;
+    width: calc(100% - 200px); 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Ensure children take full width */
+  }
+  
+  .progress-bar-container {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .progress-text {
+    font-family: 'Overpass', cursive;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .regions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    flex-grow: 1; /* Allow grid to grow and take full width */
+    margin-bottom: 40px;
+}
+  
+  .region-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Ensure children stack vertically */
+  }
+  
+  .region-header {
+    font-family: 'Permanent Marker', cursive;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    text-align: left;
+    background-color: #003B6F;
+    color: white;
+    padding: 2px;
+    border-bottom: 1px solid gray; 
+
+  }
+
+  .region-name {
+    text-align: left;
+    font-size: 18px;
+  }
+  
+  .region-total {
+    text-align: right;
+    font-family: 'Overpass', sans-serif;
+  }
+  
+  .region-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Overpass', sans-serif;
+  }
+  
+  .race-item {
+    border: 1px solid #eee;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* For logged race cards */
+  .state-header-image {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+  }
+
+  .race-item {
+    border: 1px solid #eee;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* To position the button absolutely */
+  }
+  
+  .menu-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  /* Add race button */ 
+  .add-race-button {
+    margin-bottom: 60px;
+    background-color: #ffcc00;
+    color: black;
+    font-size: 16px;
+    font-family: 'Overpass', cursive;
+    align-items: center;
+  }
+

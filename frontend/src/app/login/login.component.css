@@ -1,0 +1,42 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  
+  .align-center {
+    align-items: center;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .login-card {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .login-form {
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .mat-spinner {
+    margin-top: 16px;
+    display: block; /* Adjust visibility based on showSpinner boolean */
+  }
+  
+  .avatar-container {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+  }
+  
+  .roadrunner-avatar {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    object-fit: cover;
+  }

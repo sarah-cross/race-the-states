@@ -1,0 +1,55 @@
+/* Ensure the sidenav takes up full height */
+.sidenav-container {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Styling for the sidenav */
+mat-sidenav {
+    width: 200px; /* Set the width of the sidenav */
+    background: #003B6F; /* Background color of the sidenav */
+    color: white; /* Text color inside the sidenav */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+.sidenav-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    padding: 16px; /* Add some padding */
+    border-bottom: 1px solid #ffffff33; 
+}
+
+/* Roadrunner avatar */
+.avatar {
+    width: 80px; /* Increase size for better visibility */
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidenav-title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.menu-item {
+    color: white;
+    font-size: 16px;
+    font-family: 'Overpass', sans-serif;
+}
+
+.mat-list-item:hover {
+    background-color: #004080; /* Optional: Hover effect */
+}
+
+.mat-list-item span {
+    display: block; /* Ensure text spans full width */
+    text-align: center;
+}
+  
+/* End of side nav styling */

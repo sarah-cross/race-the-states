@@ -1,0 +1,140 @@
+/* Ensure the sidenav takes up full height */
+.sidenav-container {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+}
+
+/* Styling for the sidenav */
+mat-sidenav {
+  width: 200px; /* Set the width of the sidenav */
+  background: #003B6F; /* Background color of the sidenav */
+  color: white; /* Text color inside the sidenav */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+.sidenav-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  padding: 16px; /* Add some padding */
+  border-bottom: 1px solid #ffffff33; 
+}
+
+/* Roadrunner avatar */
+.avatar {
+  width: 100px; /* Increase size for better visibility */
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.sidenav-title {
+  font-size: 22px;
+  text-align: center;
+  color: white;
+}
+
+.menu-item {
+  color: white;
+  font-size: 18px;
+}
+
+.mat-list-item:hover {
+  background-color: #004080; /* Optional: Hover effect */
+}
+
+.mat-list-item span {
+  display: block; /* Ensure text spans full width */
+  text-align: center;
+}
+
+/* Styling for main content */
+.main-content {
+  padding: 20px;
+  width: calc(100% - 200px); 
+  margin-bottom: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Ensure children take full width */
+}
+
+
+.race-card {
+  margin-bottom: 16px;
+  height: auto; /* Adjust to fit content */
+  position: relative; /* Ensure positioning for the more button */
+  height: 140px;
+}
+
+.race-logo {
+  width: 100px; /* Increased size */
+  height: 100px; /* Increased size */
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.race-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the text */
+  margin-left: 16px; /* Add margin to create space between avatar and text */
+  flex-grow: 1; /* Ensure it takes up remaining space */
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  position: relative; /* Ensure the button can be positioned absolutely */
+  padding-bottom: 0; /* Remove default bottom padding */
+  
+}
+.wishlist-header {
+  font-family: 'Permanent Marker', cursive;
+  padding: 8px;
+  font-size: 16px;
+  color: white;
+  background-color: #003b6f;
+
+}
+
+mat-card-title {
+  margin-left: 8px;
+  font-family: 'Overpass', sans-serif;
+  font-size: 18px;
+  margin-right: 16px;
+}
+mat-card-subtitle {
+  margin-left: 8px;
+  font-family: 'Overpass', sans-serif;
+
+}
+
+.more-button {
+  position: absolute;
+  top: 8px; /* Adjust as needed */
+  right: 8px; /* Adjust as needed */
+}
+
+.register-button-container {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
+.register-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  padding: 8px 16px;
+  background-color: #ffcc00;
+  color: #000;
+  text-decoration: none; /* Remove underline */
+  border-radius: 4px;
+  text-align: center;
+
+}
+

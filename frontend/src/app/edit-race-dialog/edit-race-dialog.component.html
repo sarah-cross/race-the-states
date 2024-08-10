@@ -1,0 +1,99 @@
+<!--<h2 mat-dialog-title>Edit Race Details</h2>
+<mat-dialog-content>
+  <form [formGroup]="raceForm">
+    <mat-form-field>
+      <mat-label>Race Name</mat-label>
+      <textarea matInput formControlName="raceName"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Race Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="raceDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="race-duration-container">
+        <mat-form-field>
+          <input class="race-duration-input" matInput formControlName="hours" placeholder="HH" maxlength="2">
+        </mat-form-field>:
+        <mat-form-field>
+          <input class="race-duration-input" matInput formControlName="minutes" placeholder="MM" maxlength="2">
+        </mat-form-field>:
+        <mat-form-field>
+          <input class="race-duration-input" matInput formControlName="seconds" placeholder="SS" maxlength="2">
+        </mat-form-field>
+      </div>  
+
+    <mat-form-field>
+      <mat-label>Notes</mat-label>
+      <textarea matInput formControlName="notes"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSubmit()">Save</button>
+</mat-dialog-actions>
+
+-->
+
+
+<h2 mat-dialog-title>Edit Race</h2>
+<mat-dialog-content>
+  <form [formGroup]="raceForm">
+    <mat-form-field>
+        <mat-label>Race Name</mat-label>
+        <input matInput formControlName="raceName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Race Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="raceDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city">
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state">
+          <mat-option *ngFor="let state of states" [value]="state">
+            {{ state.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <div class="race-duration-container">
+        <mat-form-field>
+          <input class="race-duration-input" matInput formControlName="hours" placeholder="HH" maxlength="2">
+        </mat-form-field>:
+        <mat-form-field>
+          <input class="race-duration-input" matInput formControlName="minutes" placeholder="MM" maxlength="2">
+        </mat-form-field>:
+        <mat-form-field>
+          <input class="race-duration-input" matInput formControlName="seconds" placeholder="SS" maxlength="2">
+        </mat-form-field>
+      </div>  
+      
+    
+    <mat-form-field>
+      <mat-label>Notes</mat-label>
+      <textarea matInput formControlName="notes"></textarea>
+    </mat-form-field>
+    
+    <!-- Standard file input outside of mat-form-field 
+    <div>
+      <label for="file">Upload Images</label>
+      <input type="file" id="file" (change)="onFileSelected($event)" multiple>
+    </div> -->
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSubmit()">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{ data.name }}</h2>
+<mat-dialog-content>
+  <img [src]="data.logo_url" alt="{{ data.name }} logo" style="width: 100px; height: 100px;">
+  <p><strong>Date:</strong> {{ data.next_date }}</p>
+  <p><strong>Location:</strong> {{ data.address.city }}, {{ data.address.state }}</p>
+  <div [innerHTML]="getSanitizedDescription()"></div>
+  <a *ngIf="getRaceUrl()" [href]="getRaceUrl()" target="_blank">Race Website</a>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</mat-dialog-actions>
+

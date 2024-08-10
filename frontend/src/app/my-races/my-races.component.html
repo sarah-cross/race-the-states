@@ -1,0 +1,51 @@
+<!--Sidenav-->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+  
+  
+<!-- Main content area -->
+<mat-sidenav-content class="main-content">
+  <div class="progress-bar-container">
+    <mat-progress-bar mode="determinate" [value]="totalProgress"></mat-progress-bar>
+    <div class="progress-text">{{ numStatesRacedIn }} / 50 States Completed</div>
+  </div>
+
+  <div class="regions-grid">
+    <div class="region-card" *ngFor="let region of regions">
+      <div class="region-header">
+        <span class="region-name">{{ region.name }}</span>
+        <span class="region-total">{{ region.statesCompleted }} / {{ region.totalStates }} Completed</span>
+      </div>
+      <div class="region-content">
+        <div *ngFor="let race of region.races" class="race-item">
+          <div mat-card-avatar [ngStyle]="{'background-image': 'url(' + race.state.flag_image + ')'}" class="state-header-image"></div>
+          <div>{{ race.race_name }}</div>
+          <div>{{ race.race_date | date }}</div>
+          <div>{{ race.race_time }}</div>
+          <div>{{ race.race_notes }}</div>
+
+          <!-- Menu button for edit/delete -->
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editRace(race)">Edit</button>
+            <button mat-menu-item (click)="deleteRace(race)">Delete</button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button mat-fab extended class="add-race-button" (click)="addRace()">
+    <mat-icon>add</mat-icon>Add a race
+  </button>
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+    
+    

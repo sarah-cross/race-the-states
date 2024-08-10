@@ -1,0 +1,65 @@
+<!-- Sidenav -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+
+  <!-- Main content area -->
+  <mat-sidenav-content class="main-content">
+    <div class="us-map-container">
+      <svg #usMap class="us-map" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+
+    <div class="cards-row">
+      <!-- Featured Race -->
+      <mat-card class="card">
+        <div class="card-title">Featured Race</div>
+        <div class="featured-race-content">
+          <div mat-card-avatar class="race-logo" [style.background-image]="'url(' + featuredRaceLogo + ')'"></div>
+          <div class="race-text-container">
+            <div>{{ featuredRace?.name }}</div>
+            <div>{{ featuredRace?.address?.city }}, {{ featuredRace?.address?.state }}</div>
+            <div>{{ featuredRace?.next_date }}</div>
+          </div>
+        </div>
+      </mat-card>
+
+      <!-- Progress Card -->
+      <mat-card class="card">
+        <div class="card-title">Progress</div>
+        <div class="progress-content">
+          <div class="progress-chart-container">
+            <svg id="progress-chart" height="130" width="130"></svg>
+          </div>
+          <div class="progress-text-container">
+            <div>
+              <span class="color-circle" style="background-color: #ff0000;"></span>
+              Northeast: {{ regionPercentages['northeast'].toFixed(1) }}%
+            </div>
+            <div>
+              <span class="color-circle" style="background-color: #009900;"></span>
+              Midwest: {{ regionPercentages['midwest'].toFixed(1) }}%
+            </div>
+            <div>
+              <span class="color-circle" style="background-color: #0000ff;"></span>
+              South: {{ regionPercentages['south'].toFixed(1) }}%
+            </div>
+            <div>
+              <span class="color-circle" style="background-color: #ffcc00;"></span>
+              West: {{ regionPercentages['west'].toFixed(1) }}%
+            </div>
+          </div>
+        </div>
+      </mat-card>
+
+      <!-- Stats -->
+      <mat-card class="card">
+        <div class="card-title">Stats</div>
+        <div class="stats-text">PR: {{ pr }}</div>
+        <div class="stats-text">Average Race Time: {{ averagePace }}</div>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

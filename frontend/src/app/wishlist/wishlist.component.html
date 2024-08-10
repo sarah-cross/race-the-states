@@ -1,0 +1,40 @@
+<!-- Sidenav -->
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+
+    <!-- Main Content -->
+
+    
+    <mat-sidenav-content class="main-content">
+        <div class="wishlist-header">Wishlist</div>
+            <mat-card class="race-card" *ngFor="let race of wishlist">
+                <mat-card-header>
+                    <div mat-card-avatar class="race-logo" [style.background-image]="'url(' + race.logo_url + ')'"></div>
+                    <div class="race-info">
+                        <mat-card-title>{{ race.name }}</mat-card-title>
+                        <mat-card-subtitle>{{ race.address.city }}, {{ race.address.state }}</mat-card-subtitle>
+                        <mat-card-subtitle>{{ race.next_date }}</mat-card-subtitle>
+                    </div>
+                    <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="viewDetails(race)">See Details</button>
+                        <button mat-menu-item (click)="removeFromWishlist(race.race_id)">Remove from Wishlist</button>
+                        
+                    </mat-menu>
+                    </mat-card-header>
+                    <div class="register-button-container">
+                        <a class="register-button" [href]="race.url" target="_blank" rel="noopener noreferrer"> 
+                          Register
+                        </a>
+                    </div>
+            </mat-card>
+                
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
